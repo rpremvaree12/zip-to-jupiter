@@ -1,178 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>ZipGrade CSV Processor</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-            font-size: 14px;
-        }
-
-        input[type="file"],
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        input[type="file"]:focus,
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .curve-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #e9ecef;
-        }
-
-        .curve-inputs {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .curve-inputs > div {
-            flex: 1;
-        }
-
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .status.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .status.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .file-info {
-            background: #e3f2fd;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #1565c0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .download-btn {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            margin-top: 10px;
-        }
-
-        .download-btn:hover {
-            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
-        }
-    </style>
 </head>
+
 <body>
     <div class="container">
         <h1>ZipGrade CSV Processor</h1>
-        <p style="text-align: center; font-size: 12px; color: #555; margin-top: 30px;">
-    Built with permission and inspiration from a script by <a href="https://github.com/cs50nestm" target="_blank" style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
-</p>
-        
+
+
         <form id="processorForm">
             <div class="form-group">
                 <label for="csvFile">Upload ZipGrade CSV File:</label>
                 <input type="file" id="csvFile" accept=".csv" required>
                 <div id="fileInfo" class="file-info hidden"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="className">Course:</label>
+                <input type="text" id="courseName" placeholder="SCIENCE" required>
+            </div>
+
+            <div class="form-group">
+                <label for="className">Jupiter Tab Label (case sensitive):</label>
+                <input type="text" id="className" placeholder="Period 3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="assignmentName">Assignment Name:</label>
+                <input type="text" id="assignmentName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dueDate">Due Date:</label>
+                <input type="text" id="dueDate" placeholder="" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="possiblePoints">Out of how many points:</label>
+                <input type="number" id="possiblePoints" required>
+            </div>
+
+            <div class="form-group">
+                <label for="outputFilename">Output filename (without .csv):</label>
+                <input type="text" id="outputFilename" placeholder="processed_grades" required>
             </div>
 
             <div class="form-group">
@@ -190,6 +65,7 @@
                         <label for="slope">Slope:</label>
                         <input type="number" id="slope" step="0.01" value="1.0">
                     </div>
+
                     <div>
                         <label for="intercept">Intercept:</label>
                         <input type="number" id="intercept" step="0.01" value="0.0">
@@ -197,225 +73,20 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="className">Class Name:</label>
-                <input type="text" id="className" placeholder="e.g., AP COMP SCI PRINCIP 2 OF 2 (5)" required>
-            </div>
-
-            <div class="form-group">
-                <label for="assignmentName">Assignment Name:</label>
-                <input type="text" id="assignmentName" required>
-            </div>
-
-            <div class="form-group">
-                <label for="dueDate">Due Date:</label>
-                <input type="text" id="dueDate" placeholder="e.g., 2024-03-15" required>
-            </div>
-
-            <div class="form-group">
-                <label for="possiblePoints">Out of how many points:</label>
-                <input type="number" id="possiblePoints" required>
-            </div>
-
-            <div class="form-group">
-                <label for="outputFilename">Output filename (without .csv):</label>
-                <input type="text" id="outputFilename" placeholder="processed_grades" required>
-            </div>
-
             <button type="submit" id="processBtn">Process CSV File</button>
         </form>
+
+        <p style="text-align: center; font-size: 12px; color: #555; margin-top: 30px;">
+            Built with permission and inspiration from a script by <a href="https://github.com/cs50nestm"
+                target="_blank" style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
+        </p>
+
 
         <div id="status" class="status hidden"></div>
         <button id="downloadBtn" class="download-btn hidden">Download Processed CSV</button>
     </div>
 
-    <script>
-        let processedData = null;
-        let outputFilename = '';
 
-        // Handle curve option change
-        document.getElementById('curveOption').addEventListener('change', function() {
-            const curveSection = document.getElementById('curveSection');
-            if (this.value === 'yes') {
-                curveSection.classList.remove('hidden');
-            } else {
-                curveSection.classList.add('hidden');
-            }
-        });
-
-        // Handle file upload
-        document.getElementById('csvFile').addEventListener('change', function() {
-            const fileInfo = document.getElementById('fileInfo');
-            if (this.files.length > 0) {
-                const file = this.files[0];
-                fileInfo.textContent = `Selected: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
-                fileInfo.classList.remove('hidden');
-            } else {
-                fileInfo.classList.add('hidden');
-            }
-        });
-
-        // Curve calculation functions
-        function calculateCurvedScore(slope, intercept, score) {
-            return slope * score + intercept;
-        }
-
-        // CSV parsing function
-        function parseCSV(text) {
-            const lines = text.split('\n');
-            const result = [];
-            
-            for (let line of lines) {
-                if (line.trim() === '') continue;
-                
-                const row = [];
-                let current = '';
-                let inQuotes = false;
-                
-                for (let i = 0; i < line.length; i++) {
-                    const char = line[i];
-                    
-                    if (char === '"') {
-                        inQuotes = !inQuotes;
-                    } else if (char === ',' && !inQuotes) {
-                        row.push(current.trim());
-                        current = '';
-                    } else {
-                        current += char;
-                    }
-                }
-                row.push(current.trim());
-                result.push(row);
-            }
-            
-            return result;
-        }
-
-        // CSV generation function
-        function generateCSV(data) {
-            return data.map(row => 
-                row.map(cell => {
-                    // Escape quotes and wrap in quotes if necessary
-                    const cellStr = String(cell);
-                    if (cellStr.includes(',') || cellStr.includes('"') || cellStr.includes('\n')) {
-                        return '"' + cellStr.replace(/"/g, '""') + '"';
-                    }
-                    return cellStr;
-                }).join(',')
-            ).join('\n');
-        }
-
-        // Process form submission
-        document.getElementById('processorForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const statusDiv = document.getElementById('status');
-            const processBtn = document.getElementById('processBtn');
-            const downloadBtn = document.getElementById('downloadBtn');
-            
-            try {
-                // Reset status
-                statusDiv.classList.add('hidden');
-                downloadBtn.classList.add('hidden');
-                processBtn.disabled = true;
-                processBtn.textContent = 'Processing...';
-                
-                // Get form values
-                const csvFile = document.getElementById('csvFile').files[0];
-                const useCurve = document.getElementById('curveOption').value === 'yes';
-                let slope = 1.0, intercept = 0.0;
-                
-                if (useCurve) {
-                    slope = parseFloat(document.getElementById('slope').value) || 1.0;
-                    intercept = parseFloat(document.getElementById('intercept').value) || 0.0;
-                }
-                
-                const assignmentName = document.getElementById('assignmentName').value;
-                const className = document.getElementById('className').value;
-                const dueDate = document.getElementById('dueDate').value;
-                const possiblePoints = document.getElementById('possiblePoints').value;
-                outputFilename = document.getElementById('outputFilename').value.replace(' ', '_') + '.csv';
-                
-                // Read CSV file
-                const text = await csvFile.text();
-                const zipgradeData = parseCSV(text);
-                
-                if (zipgradeData.length < 2) {
-                    throw new Error('CSV file must have at least a header row and one data row');
-                }
-                
-                const header = zipgradeData[0];
-                const dataRows = zipgradeData.slice(1);
-                
-                // Process student data
-                const classSection = {};
-                
-                for (const row of dataRows) {
-                    if (row.length < 8) continue; // Skip incomplete rows
-                    
-                    const studentName = `${row[5]}, ${row[4]} (${row[2]})`;
-                    const rawScore = parseFloat(row[7]) || 0;
-                    const totalQuestions = parseFloat(row[6]) || 1;
-                    let studentScore = (rawScore / totalQuestions) * 100;
-                    
-                    if (useCurve) {
-                        studentScore = calculateCurvedScore(slope, intercept, studentScore);
-                    }
-                    
-                    classSection[studentName] = Math.round(studentScore * 10) / 10; // Round to 1 decimal
-                }
-                
-                // Generate output CSV
-                const outputData = [
-                    ["This file should be opened in a spreadsheet application."],
-                    ["To import back into Jupiter, save this file as CSV (comma delimited)."],
-                    ["You may edit scores and add assignment columns, but do not change anything else."],
-                    [],
-                    [],
-                    ["Class:", className],
-                    ["Assignment:", assignmentName, ""],
-                    ["Date:", `(${dueDate})`, ""],
-                    ["Possible:", possiblePoints, ""],
-                    ["", "Score:", "Comment:"]
-                ];
-                
-                // Add student scores
-                for (const [studentName, studentScore] of Object.entries(classSection)) {
-                    outputData.push([studentName, studentScore, ""]);
-                }
-                
-                processedData = generateCSV(outputData);
-                
-                // Show success message
-                statusDiv.textContent = `Successfully processed ${Object.keys(classSection).length} students. Ready to download!`;
-                statusDiv.className = 'status success';
-                statusDiv.classList.remove('hidden');
-                downloadBtn.classList.remove('hidden');
-                
-            } catch (error) {
-                statusDiv.textContent = `Error: ${error.message}`;
-                statusDiv.className = 'status error';
-                statusDiv.classList.remove('hidden');
-            } finally {
-                processBtn.disabled = false;
-                processBtn.textContent = 'Process CSV File';
-            }
-        });
-
-        // Handle download
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            if (processedData) {
-                const blob = new Blob([processedData], { type: 'text/csv' });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = outputFilename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-            }
-        });
-    </script>
 </body>
+
 </html>
