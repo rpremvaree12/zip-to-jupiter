@@ -10,7 +10,8 @@
 
 <body>
     <div class="container">
-        <h1>ZipGrade CSV Processor</h1>
+        <h1>ZipGrade Processor for Jupitergrades</h1>
+        <p>This app is meant to easily process zipgrade data for easy grade import to Jupiter</p>
 
 
         <form id="processorForm">
@@ -76,15 +77,21 @@
             <button type="submit" id="processBtn">Process CSV File</button>
         </form>
 
-        <p style="text-align: center; font-size: 12px; color: #555; margin-top: 30px;">
-            Built with permission and inspiration from a script by <a href="https://github.com/cs50nestm"
-                target="_blank" style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
-        </p>
+        <div id="contribution">
+            <a href="https://login.jupitered.com/login/index.php" target="_blank" rel="noopener noreferrer"> Open Jupiter in a new tab</a>
+            <p> Permission and inspiration from
+                <a href="https://github.com/cs50nestm" target="_blank" style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
+            </p>
+            <p> Built with <span id="heart">&#x2764</span></p>
+
+        </div>
 
 
         <div id="status" class="status hidden"></div>
         <button id="downloadBtn" class="download-btn hidden">Download Processed CSV</button>
+        
     </div>
+    
 
 
 </body>
