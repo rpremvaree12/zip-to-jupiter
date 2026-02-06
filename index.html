@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>ZipGrade Processor for Jupitergrades</h1>
-        <p>This app is meant to easily process zipgrade data for easy grade import to Jupiter</p>
+        <p>Easily convert zipgrade csv for easy grade import to Jupiter</p>
 
 
         <form id="processorForm">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="form-group">
-                <label for="className">Course:</label>
+                <label for="className">Course Title:</label>
                 <input type="text" id="courseName" placeholder="SCIENCE" required>
             </div>
 
@@ -38,16 +38,16 @@
 
             <div class="form-group">
                 <label for="dueDate">Due Date:</label>
-                <input type="text" id="dueDate" placeholder="" value="" required>
+                <input type="date" id="dueDate" required>
             </div>
 
             <div class="form-group">
-                <label for="possiblePoints">Out of how many points:</label>
-                <input type="number" id="possiblePoints" required>
+                <label for="possiblePoints">Points possible:</label>
+                <input type="number" id="possiblePoints" value required>
             </div>
 
             <div class="form-group">
-                <label for="outputFilename">Output filename (without .csv):</label>
+                <label for="outputFilename">Output file name (without .csv):</label>
                 <input type="text" id="outputFilename" placeholder="processed_grades" required>
             </div>
 

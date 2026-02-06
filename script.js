@@ -1,16 +1,18 @@
-// Get today's date
-const today = new Date();
+  const fileInput = document.getElementById('csvFile');
+  const outputFilenameInput = document.getElementById('outputFilename');
 
-// Format the date to YYYY-MM-DD (required for HTML date inputs)
-const year = today.getFullYear();
-// getMonth() is zero-based, so add 1
-const month = String(today.getMonth() + 1).padStart(2, '0');
-const day = String(today.getDate()).padStart(2, '0');
-
-const formattedDate = `${year}-${month}-${day}`;
-
-// Set the value of the input field
-document.getElementById('dueDate').value = formattedDate;
+  fileInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      // Get the full filename (e.g., "Biology_Grades.csv")
+      const originalName = this.files[0].name;
+      
+      // Remove the extension to get just "Biology_Grades"
+      const nameWithoutExtension = originalName.substring(0, originalName.lastIndexOf('.'));
+      
+      // Update the placeholder of the output input field
+      outputFilenameInput.placeholder = nameWithoutExtension + "_processed";
+    }
+  });
 
 let processedData = null;
         let outputFilename = '';
