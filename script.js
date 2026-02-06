@@ -1,18 +1,18 @@
-//   const fileInput = document.getElementById('csvFile');
-//   const outputFilenameInput = document.getElementById('outputFilename');
+  const fileInput = document.getElementById('csvFile');
+  const outputFilenameInput = document.getElementById('outputFilename');
 
-//   fileInput.addEventListener('change', function() {
-//     if (this.files && this.files[0]) {
-//       // Get the full filename (e.g., "Biology_Grades.csv")
-//       const originalName = this.files[0].name;
+  fileInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      // Get the full filename (e.g., "Biology_Grades.csv")
+      const originalName = this.files[0].name;
       
-//       // Remove the extension to get just "Biology_Grades"
-//       const nameWithoutExtension = originalName.substring(0, originalName.lastIndexOf('.'));
+      // Remove the extension to get just "Biology_Grades"
+      const nameWithoutExtension = originalName.substring(0, originalName.lastIndexOf('.'));
       
-//       // Update the placeholder of the output input field
-//       outputFilenameInput.placeholder = nameWithoutExtension + "_processed";
-//     }
-//   });
+      // Update the placeholder of the output input field
+      outputFilenameInput.value = "processed_"+nameWithoutExtension;
+    }
+  });
 
 let processedData = null;
         let outputFilename = '';

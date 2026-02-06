@@ -10,13 +10,19 @@
 
 <body>
     <div class="container">
-        <h1>ZipGrade Processor for Jupitergrades</h1>
-        <p>Easily convert zipgrade csv for easy grade import to Jupiter</p>
-
+        <div id="header">
+            <h1>ZipGrade -> JupiterGrades</h1>
+            <h5>Easily Convert ZipGrade Data for Easy Grade Import to Jupiter!</h5>
+        </div>
+        <div id="instructions">
+            <p>1. Download ZipGrade .csv <strong>by Class</strong></p>
+            <p>2. Enter required information below and download processed .csv file</p>
+            <p>3. Import processed file into Jupiter</p>
+        </div>
 
         <form id="processorForm">
             <div class="form-group">
-                <label for="csvFile">Upload ZipGrade CSV File:</label>
+                <label for="csvFile">Upload ZipGrade Class CSV File:</label>
                 <input type="file" id="csvFile" accept=".csv" required>
                 <div id="fileInfo" class="file-info hidden"></div>
             </div>
@@ -78,9 +84,11 @@
         </form>
 
         <div id="contribution">
-            <a href="https://login.jupitered.com/login/index.php" target="_blank" rel="noopener noreferrer"> Open Jupiter in a new tab</a>
+            <a href="https://login.jupitered.com/login/index.php" target="_blank" rel="noopener noreferrer"> Open
+                Jupiter in a new tab</a>
             <p> Permission and inspiration from
-                <a href="https://github.com/cs50nestm" target="_blank" style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
+                <a href="https://github.com/cs50nestm" target="_blank"
+                    style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
             </p>
             <p> Built with <span id="heart">&#x2764</span></p>
 
@@ -89,11 +97,12 @@
 
         <div id="status" class="status hidden"></div>
         <button id="downloadBtn" class="download-btn hidden">Download Processed CSV</button>
-        
+
     </div>
-    
+
 
 
 </body>
 <script src="script.js"></script>
+
 </html>
