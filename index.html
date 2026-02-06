@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>ZipGrade CSV Processor</title>
 </head>
@@ -48,17 +49,12 @@
             </div>
 
             <div class="form-group">
-                <label for="possiblePoints">Points possible:</label>
-                <input type="number" id="possiblePoints" value required>
+                <label for="possiblePoints">Points Possible:</label>
+                <input type="number" id="possiblePoints" value="100" required>
             </div>
 
             <div class="form-group">
-                <label for="outputFilename">Output file name (without .csv):</label>
-                <input type="text" id="outputFilename" placeholder="processed_grades" required>
-            </div>
-
-            <div class="form-group">
-                <label for="curveOption">Do you want to curve the scores?</label>
+                <label for="curveOption">Curve scores?</label>
                 <select id="curveOption">
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
@@ -80,6 +76,13 @@
                 </div>
             </div>
 
+
+            <div class="form-group">
+                <label for="outputFilename">Enter file output name (default is processed_ + uploaded fileName):</label>
+                <input type="text" id="outputFilename" placeholder="processed_grades" required>
+            </div>
+
+
             <button type="submit" id="processBtn">Process CSV File</button>
         </form>
 
@@ -91,6 +94,10 @@
                     style="color: #667eea; text-decoration: none;">Margaret Tanzosh</a>.
             </p>
             <p> Built with <span id="heart">&#x2764</span></p>
+            <a href="https://github.com/rpremvaree12/zip-to-jupiter" target="_blank"
+                aria-label="View project code on GitHub">
+                <i class="fab fa-github"></i>
+            </a>
 
         </div>
 
