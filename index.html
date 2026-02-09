@@ -16,9 +16,13 @@
             <h5>Easily Convert ZipGrade Data for Easy Grade Import to Jupiter!</h5>
         </div>
         <div id="instructions">
-            <p>1. Download ZipGrade .csv <strong>by Class</strong></p>
-            <p>2. Enter required information below and download processed .csv file</p>
-            <p>3. Import processed file into Jupiter</p>
+            <ol>
+                <li>Download ZipGrade .csv file <strong>by Class</strong> (Jupiter doesn't allow import for multiple classes)</li>
+                <li>In Jupiter, find the course name and class label under SetUp > Classes/Subjects</li>
+                <img src="setup.png">
+                <li> Download processed .csv and Import processed file into Jupiter</li>
+                <img src="import.png">
+            </ol>
         </div>
 
         <form id="processorForm">
@@ -29,12 +33,12 @@
             </div>
 
             <div class="form-group">
-                <label for="className">Course Title:</label>
+                <label for="className">Course:</label>
                 <input type="text" id="courseName" placeholder="SCIENCE" required>
             </div>
 
             <div class="form-group">
-                <label for="className">Jupiter Tab Label (case sensitive):</label>
+                <label for="className">Tab (case sensitive):</label>
                 <input type="text" id="className" placeholder="Period 3" required>
             </div>
 

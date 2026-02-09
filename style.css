@@ -24,13 +24,19 @@
  }
 
  #possiblePoints {
-    width: 80px; /* Adjust this value to your liking */
-    text-align: center; /* Centers the number inside the box */
-}
+     width: 80px;
+     text-align: center;
+ }
+
  #curveOption {
-    width: 100px; /* Adjust this value to your liking */
-    text-align: center; /* Centers the number inside the box */
-}
+     width: 100px;
+     text-align: center;
+ }
+
+ #instructions img {
+    max-width: 35%;
+    height: auto;
+ }
 
 
 
@@ -195,4 +201,4 @@
 }
 .fab.fa-github:hover {
     color: #d407ca; /* Color on hover */
-}
+ }

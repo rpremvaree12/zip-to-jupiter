@@ -115,9 +115,13 @@ let processedData = null;
                 }
                 
                 const assignmentName = document.getElementById('assignmentName').value;
-                const courseName = document.getElementById('courseName').value;
+                const courseName = document.getElementById('courseName').value.toUpperCase();
                 const className = document.getElementById('className').value;
                 const dueDate = document.getElementById('dueDate').value;
+
+                const [dueYear, dueMonth, dueDay] = dueDate.split('-');
+                const formattedDate = `${dueMonth}/${dueDay}`;
+
                 const possiblePoints = document.getElementById('possiblePoints').value;
                 outputFilename = document.getElementById('outputFilename').value.replace(' ', '_') + '.csv';
                 
@@ -157,9 +161,9 @@ let processedData = null;
                     ["You may edit scores and add assignment columns, but do not change anything else."],
                     [],
                     [],
-                    ["Class:", courseName+' '+' '+ className],
+                    ["Class:", courseName+' ('+ className+')'],
                     ["Assignment:", assignmentName, ""],
-                    ["Date:", `(${dueDate})`, ""],
+                    ["Date:", `(${formattedDate})`, ""],
                     ["Possible:", possiblePoints, ""],
                     ["", "Score:", "Comment:"]
                 ];
