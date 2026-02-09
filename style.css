@@ -34,11 +34,35 @@
  }
 
  #instructions img {
-    max-width: 35%;
-    height: auto;
+     max-width: 35%;
+     height: auto;
  }
 
+ .zoomable-image {
+     /* Initial state */
+     width: 200px;
+     /* Set a default size */
+     height: auto;
+     transition: transform 0.25s ease;
+     /* Smooth transition for the zoom effect */
+     cursor: zoom-in;
+     /* Change cursor to indicate it's clickable */
+ }
 
+ .zoomable-image.zoomed {
+     /* Zoomed state */
+     transform: scale(4);
+     /* Zooms the image to twice its size */
+     cursor: zoom-out;
+     /* Change cursor to indicate it can be unzoomed */
+     /* Optional: Center the image when zoomed in */
+     position: fixed;
+     top: 25%;
+     left: 50%;
+     /* transform: translate(-50%, -50%) scale(2); */
+     z-index: 9999;
+     /* Ensure it's on top of other content */
+ }
 
  body {
      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -194,11 +218,13 @@
  }
 
  .fab.fa-github {
-    font-size: 18px;
-    color: #333;
-    transition: color 0.3s ease;
+     font-size: 18px;
+     color: #333;
+     transition: color 0.3s ease;
 
-}
-.fab.fa-github:hover {
-    color: #d407ca; /* Color on hover */
+ }
+
+ .fab.fa-github:hover {
+     color: #d407ca;
+     /* Color on hover */
  }
